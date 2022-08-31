@@ -1,14 +1,14 @@
 <x-guest-layout>
-    
+
     <x-auth-card>
-        
+
         <x-slot name="logo">
             {{-- <a href="/"> --}}
                 <img src="http://{{$_SERVER['HTTP_HOST']}}/img/landingpage/hero-img.png" class="" width="250px">
                 {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
             {{-- </a> --}}
         </x-slot>
-        
+
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,11 +44,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                @endif --}}
 
                 <x-button class="ml-3">
                     {{ __('Log in') }}

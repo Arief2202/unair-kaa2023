@@ -33,8 +33,9 @@ class DashboardController extends Controller
     public function pembayaran(Request $request)
     {
         if(Auth::user()->role == 1){
+            $users = User::where('status', '1')->get()->merge(User::where('email', '!=', 'admin@kaasemnasunair2022.com')->where('status', '!=', '1')->orderBy('status', 'DESC')->get());
             return view('admin.pembayaran.index', [
-                'users' => User::where('email', '!=', 'admin@kaasemnasunair2022.com')->get(), 
+                'users' => $users,
                 'request' => $request
             ]);
         }

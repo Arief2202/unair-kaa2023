@@ -1,10 +1,7 @@
 <?php
-
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PesertaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +20,7 @@ Route::get('/', function () {
     if(isset(Auth::user()->email)){
         return redirect('/dashboard');
     }
-    else{        
+    else{
         return view('landing');
     }
 });
@@ -34,12 +31,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
         Route::post('/uploadBuktiBayar', 'uploadBuktiBayar');
         Route::post('/updateBuktiBayar', 'updateBuktiBayar');
-        
+
         Route::get('/pembayaran', 'pembayaran');
         Route::post('/accPembayaran', 'accPembayaran');
     });
     Route::controller(PesertaController::class)->group(function() {
-        Route::get('/peserta', 'index')->name('dashboard');
+        Route::get('/peserta', 'index');
         Route::post('/donePayment', 'donePayment');
         Route::post('/updatePeserta/{biodata}', 'updatePeserta');
         Route::post('/createPeserta/{biodata}', 'createPeserta');
@@ -47,7 +44,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/accPeserta', 'accPeserta');
 
     });
-    
+    Route::controller(SoalController::class)->group(function() {
+        Route::get('/banksoal/{sublink}', 'index');
+
+    });
+
 });
 
 require __DIR__.'/auth.php';

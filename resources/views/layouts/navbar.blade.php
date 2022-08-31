@@ -12,6 +12,16 @@
         <li class="nav-item">
           <a class="nav-link {{Request::segment(1) == 'dashboard'? 'active' : ''}}" href="/">Home</a>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {{Request::segment(1) == 'banksoal'? 'active' : ''}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Bank Soal
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item {{Request::segment(2) == 'preline'? 'active' : ''}}" href="/banksoal/preline">Preline</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan1'? 'active' : ''}}" href="/banksoal/penyisihan1">Penyisihan 1</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan2'? 'active' : ''}}" href="/banksoal/penyisihan2">Penyisihan 2</a></li>
+            </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link {{Request::segment(1) == 'peserta'? 'active' : ''}}" aria-current="page" href="/peserta">Peserta</a>
         </li>
