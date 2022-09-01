@@ -14,7 +14,6 @@ class PesertaController extends Controller
 {
     public function index(Request $request)
     {
-        // dd(peserta::where('user_id', '=', $request->id_user)->where('role', '=', $request->role)->first());
         if(Auth::user()->role != 1) return redirect('/dashboard');
         $user =  peserta::where('user_id', '=', $request->id_user)->get();
         $users = User::where('status', '4')->get()->merge(User::where('email', '!=', 'admin@kaasemnasunair2022.com')->where('status', '>=', '2')->where('status', '!=', '4')->orderBy('status', 'DESC')->get());

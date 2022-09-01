@@ -46,7 +46,8 @@ Route::middleware('auth')->group(function () {
     });
     Route::controller(SoalController::class)->group(function() {
         Route::get('/banksoal/{sublink}', 'index');
-
+        Route::post('/createSoal', 'store');
+        Route::post('/deleteSoal', 'destroy');
     });
 
 });
