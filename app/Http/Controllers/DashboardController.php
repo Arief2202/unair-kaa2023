@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\peserta;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\time;
 
 class DashboardController extends Controller
 {
@@ -18,7 +19,9 @@ class DashboardController extends Controller
     public function index()
     {
         if(Auth::user()->role == 1){
-            return view('admin.dashboard.index');
+            return view('admin.dashboard.index',[
+                "times" => time::get(),
+            ]);
         }
         else{
             $status = Auth::user()->status;
@@ -28,6 +31,7 @@ class DashboardController extends Controller
             else if($status == 3) return redirect('/biodata/1');
             else if($status == 4) return view('peserta.prosesDaftar.waitAccBiodata');
             else if($status == 5) return view('peserta.ujian.index');
+            else if($status == 6) return view('peserta.ujian.index2');
         }
     }
     public function pembayaran(Request $request)

@@ -14,4 +14,8 @@ class Soal extends Model
     public function jawaban(){
         return Jawaban::where('soal_id', $this->id)->get();
     }
+
+    public function jawabanSecure(){
+        return Jawaban::where('soal_id', $this->id)->select('id', 'jawaban')->get();
+    }
 }

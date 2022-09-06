@@ -17,7 +17,8 @@
               Bank Soal
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item {{Request::segment(2) == 'preline'? 'active' : ''}}" href="/banksoal/preline">Preline</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'simulasi'? 'active' : ''}}" href="/banksoal/simulasi">Simulasi</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'preliminary'? 'active' : ''}}" href="/banksoal/preliminary">Preliminary</a></li>
               <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan1'? 'active' : ''}}" href="/banksoal/penyisihan1">Penyisihan 1</a></li>
               <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan2'? 'active' : ''}}" href="/banksoal/penyisihan2">Penyisihan 2</a></li>
             </ul>

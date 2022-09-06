@@ -15,6 +15,20 @@ class SoalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function test(Request $request){
+        // dd(Jawaban::latest()->select('id', 'jawaban')->first());
+        if(Auth::user()->role == 1 || Auth::user()->status == 6 ){
+            if(!$request->soal) return redirect(strtok($_SERVER['REQUEST_URI'], '?').'?soal=1');
+            $soals = Soal::all();
+            return view('ujian', [
+                'soals' => $soals,
+                'soal' => $soals->slice($request->soal-1, 1)->first(),
+                'req' => $request
+            ]);
+        }
+        else return redirect('/dashboard');
+    }
     public function index($sublink, Request $request)
     {
         if(Auth::user()->role != 1) return redirect('/dashboard');
@@ -24,8 +38,8 @@ class SoalController extends Controller
         }
         if($sublink == "preline"){
             return view('admin.soal.index', [
-                'babak' => "Preline",
-                'soals' => Soal::where('babak', 'Preline')->get(),
+                'babak' => "Preliminary",
+                'soals' => Soal::where('babak', 'Preliminary')->get(),
                 'soalDetail' => $soalDetail
             ]);
         }
@@ -33,6 +47,13 @@ class SoalController extends Controller
             return view('admin.soal.index', [
                 'babak' => "Penyisihan 1",
                 'soals' => Soal::where('babak', 'Penyisihan 1')->get(),
+                'soalDetail' => $soalDetail
+            ]);
+        }
+        else if($sublink == "simulasi"){
+            return view('admin.soal.index', [
+                'babak' => "Simulasi",
+                'soals' => Soal::where('babak', 'Simulasi')->get(),
                 'soalDetail' => $soalDetail
             ]);
         }
