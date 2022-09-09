@@ -36,7 +36,7 @@ class SoalController extends Controller
         if($request->soal_id){
             $soalDetail = Soal::where('id', $request->soal_id)->first();
         }
-        if($sublink == "preline"){
+        if($sublink == "preliminary"){
             return view('admin.soal.index', [
                 'babak' => "Preliminary",
                 'soals' => Soal::where('babak', 'Preliminary')->get(),
@@ -63,7 +63,7 @@ class SoalController extends Controller
             ]);
         }
         else{
-            return redirect('/banksoal/preline');
+            return redirect('/banksoal/preliminary');
         }
     }
 

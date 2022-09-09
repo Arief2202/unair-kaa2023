@@ -53,8 +53,16 @@ Route::middleware('auth')->group(function () {
     Route::controller(TimeController::class)->group(function() {
         Route::post('/setTime/{babak}', 'setTime');
         Route::post('/updateTime/{babak}', 'updateTime');
+        Route::get('/getTimes', 'getTimes');
+        Route::post('/getTimes', 'getTimes');
         Route::get('/getTime', 'getTime');
         Route::post('/getTime', 'getTime');
+    });
+    Route::controller(AnswerController::class)->group(function() {
+        Route::get('/nilai/{sublink}', 'nilai');
+        Route::post('/answer', 'store');
+        Route::post('/uploadSesi2', 'upload');
+        Route::post('/updateNilaiFile', 'updateNilai');
     });
 
 });

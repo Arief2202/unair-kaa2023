@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Payment Confirmed</title>
     <link href="/bootstrap-5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="alert alert-success" role="alert">
                     Pembayaran telah dikonfirmasi, Silahkan isi data diri !
-                </div>  
+                </div>
                 <form action="/donePayment" method="post" class="d-flex justify-content-end"> @csrf
                   <button type="submit" class="btn btn-success">Isi Biodata</button>
                 </form>
@@ -23,8 +23,8 @@
     <script src="/bootstrap-5.2.0-beta1/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
       window.addEventListener("pageshow", function ( event ) {
-        var historyTraversal = event.persisted || 
-                                ( typeof window.performance != "undefined" && 
+        var historyTraversal = event.persisted ||
+                                ( typeof window.performance != "undefined" &&
                                     window.performance.navigation.type === 2 );
         if ( historyTraversal ) {
             // Handle page restore.

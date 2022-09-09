@@ -13,6 +13,18 @@
           <a class="nav-link {{Request::segment(1) == 'dashboard'? 'active' : ''}}" href="/">Home</a>
         </li>
         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {{Request::segment(1) == 'nilai'? 'active' : ''}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Nilai
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item {{Request::segment(2) == 'simulasi'? 'active' : ''}}" href="/nilai/simulasi">Simulasi</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'simulasi2'? 'active' : ''}}" href="/nilai/simulasi2">Simulasi 2</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'preliminary'? 'active' : ''}}" href="/nilai/preliminary">Preliminary</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan1'? 'active' : ''}}" href="/nilai/penyisihan1">Penyisihan 1</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan2'? 'active' : ''}}" href="/nilai/penyisihan2">Penyisihan 2</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle {{Request::segment(1) == 'banksoal'? 'active' : ''}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Bank Soal
             </a>
@@ -20,7 +32,6 @@
               <li><a class="dropdown-item {{Request::segment(2) == 'simulasi'? 'active' : ''}}" href="/banksoal/simulasi">Simulasi</a></li>
               <li><a class="dropdown-item {{Request::segment(2) == 'preliminary'? 'active' : ''}}" href="/banksoal/preliminary">Preliminary</a></li>
               <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan1'? 'active' : ''}}" href="/banksoal/penyisihan1">Penyisihan 1</a></li>
-              <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan2'? 'active' : ''}}" href="/banksoal/penyisihan2">Penyisihan 2</a></li>
             </ul>
         </li>
         <li class="nav-item">

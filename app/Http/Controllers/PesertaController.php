@@ -16,7 +16,7 @@ class PesertaController extends Controller
     {
         if(Auth::user()->role != 1) return redirect('/dashboard');
         $user =  peserta::where('user_id', '=', $request->id_user)->get();
-        $users = User::where('status', '4')->get()->merge(User::where('email', '!=', 'admin@kaasemnasunair2022.com')->where('status', '>=', '2')->where('status', '!=', '4')->orderBy('status', 'DESC')->get());
+        $users = User::where('status', '4')->get()->merge(User::where('role', '=', '0')->where('status', '>=', '2')->where('status', '!=', '4')->orderBy('status', 'DESC')->get());
         $peserta = NULL;
         $lengkap = TRUE;
         if($request->role == 'ketua') $peserta = $user->where('role', '=', 'Ketua')->first();

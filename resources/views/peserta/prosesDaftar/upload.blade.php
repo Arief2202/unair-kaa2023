@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Pembayaran</title>
     <link href="/bootstrap-5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
@@ -23,7 +23,7 @@
                     a.n. ANDHINI IZHATURRACHMANIA<br>
                     <br>
                     <b>Shopeepay</b><br>
-                    0881026853017<br>   
+                    0881026853017<br>
                     a.n. NADIA AMANDA HAKIM
                 </div>
                 <div class="mb-3">
@@ -36,7 +36,7 @@
                                 {{$message}}
                             </div>
                             @enderror
-                        </div>                        
+                        </div>
                         <div class="col d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -53,8 +53,8 @@
     <script src="/bootstrap-5.2.0-beta1/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
       window.addEventListener("pageshow", function ( event ) {
-        var historyTraversal = event.persisted || 
-                                ( typeof window.performance != "undefined" && 
+        var historyTraversal = event.persisted ||
+                                ( typeof window.performance != "undefined" &&
                                     window.performance.navigation.type === 2 );
         if ( historyTraversal ) {
             // Handle page restore.
