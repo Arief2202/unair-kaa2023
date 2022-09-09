@@ -201,7 +201,7 @@
                 }
             }
             httpxml.onreadystatechange = stateck;
-            httpxml.open("GET", "/getTimes", true);
+            httpxml.open("POST", "/getTimes", true);
             httpxml.send(null);
         }, 500);
     </script>

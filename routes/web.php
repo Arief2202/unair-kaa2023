@@ -53,9 +53,13 @@ Route::middleware('auth')->group(function () {
     Route::controller(TimeController::class)->group(function() {
         Route::post('/setTime/{babak}', 'setTime');
         Route::post('/updateTime/{babak}', 'updateTime');
-        Route::get('/getTimes', 'getTimes');
+        Route::get('/getTimes', function(){
+            return redirect('/dashboard');
+        });
         Route::post('/getTimes', 'getTimes');
-        Route::get('/getTime', 'getTime');
+        Route::get('/getTime', function(){
+            return redirect('/dashboard');
+        });
         Route::post('/getTime', 'getTime');
     });
     Route::controller(AnswerController::class)->group(function() {
