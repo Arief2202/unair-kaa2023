@@ -13,6 +13,7 @@ use App\Models\time;
 use DateTime;
 use App\Models\Answer;
 use App\Models\AnswerFile;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -21,6 +22,20 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function changePassword(Request $request){
+        return view('newPassword');
+    }
+    public function saveChangePassword(Request $request){
+        $validated = $request->validate([
+            'password' => 'required|min:8',
+            'confirm_password' => 'required_with:password|same:password|required|min:8',
+        ]);
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->role = 0;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect('/dashboard');
+    }
     public function index(Request $request)
     {
         if(Auth::user()->role == 1){
@@ -29,14 +44,17 @@ class DashboardController extends Controller
             ]);
         }
         else{
+            if(Auth::user()->role == 5){
+                return view('newPassword');
+            }
             $status = Auth::user()->status;
             if($status == 0) return view('peserta.prosesDaftar.upload');
             else if($status == 1) return view('peserta.prosesDaftar.waitAccPembayaran');
             else if($status == 2) return view('peserta.prosesDaftar.datadiri');
             else if($status == 3) return redirect('/biodata/1');
             else if($status == 4) return view('peserta.prosesDaftar.waitAccBiodata');
-            else if($status == 5) return view('peserta.ujian.index');
-            else if($status == 6){
+            // else if($status == 5) return view('peserta.ujian.index');
+            else if($status == 5){
                 $now = new DateTime();
                 $times = time::get();
                 $selectedTime = new time();
@@ -97,7 +115,7 @@ class DashboardController extends Controller
     public function pembayaran(Request $request)
     {
         if(Auth::user()->role == 1){
-            $users = User::where('status', '1')->get()->merge(User::where('role', '=', '0')->where('status', '!=', '1')->orderBy('status', 'DESC')->get());
+            $users = User::where('status', '1')->get()->merge(User::where('role', '!=', '1')->where('status', '!=', '1')->orderBy('status', 'DESC')->get());
             return view('admin.pembayaran.index', [
                 'users' => $users,
                 'request' => $request

@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/pembayaran', 'pembayaran');
         Route::post('/accPembayaran', 'accPembayaran');
+
+        Route::get('/changePassword', 'changePassword');
+        Route::post('/changePassword', 'saveChangePassword');
     });
     Route::controller(PesertaController::class)->group(function() {
         Route::get('/peserta', 'index');

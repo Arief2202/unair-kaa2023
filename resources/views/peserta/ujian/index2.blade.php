@@ -19,13 +19,16 @@
         </div>
         <div class="card mt-2">
             <div class="card-body">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab aut velit distinctio unde? Dicta libero
-                corporis, molestiae voluptates sint quasi reprehenderit repellendus perspiciatis minus architecto quos
-                porro, dignissimos neque aperiam vero facilis? Facilis dolor iusto aut magni placeat nam laborum minima
-                distinctio voluptas molestiae nobis asperiores doloribus, laudantium natus fuga<br>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, corporis!<br>
-                - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, sunt.<br>
-                - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, id.<br>
+                TATA CARA PENGERJAAN KAA 2O22<br><br>
+
+                1. Peserta mengakses web perlombaan di https://kaasemnasunair.com/ <br>
+                2. Peserta melakukan login dengan username dan password yang sama saat mendaftar..<br>
+                3. Soal akan otomatis muncul ketika waktu pengerjaan telah dimulai.<br>
+                4. Pada akhir soal ujian klik "finish" dan tunggu hingga waktu pengerjaan habis.<br>
+                5. Jika waktu pengerjaan telah selesai jawaban akan otomatis tersimpan.<br>
+
+                <br><br>
+                <div style="display: inline;color:red;">* Dilarang Keras melakukan kecurangan!!!</div>
             </div>
         </div>
     </div>
