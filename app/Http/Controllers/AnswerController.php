@@ -3,19 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreAnswerRequest;
-use App\Http\Requests\UpdateAnswerRequest;
 use App\Models\Answer;
 use App\Models\AnswerFile;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\peserta;
 use App\Models\Soal;
-use App\Models\Jawaban;
 use App\Models\User;
-use App\Models\time;
-use DateTime;
 
 class AnswerController extends Controller
 {
@@ -84,8 +78,7 @@ class AnswerController extends Controller
                         "score" => $score,
                 ];
             }
-            $scores = collect($scores);
-
+            $scores = collect($scores)->sortByDesc('score');
             return view('admin.nilai.index', [
                 'babak' => $babak,
                 'scores' => $scores,

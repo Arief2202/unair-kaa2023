@@ -70,6 +70,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/answer', 'store');
         Route::post('/uploadSesi2', 'upload');
         Route::post('/updateNilaiFile', 'updateNilai');
+        // Route::get('/export/{babak}', 'export');
+    });
+
+    Route::controller(AnswerFileController::class)->group(function() {
+        Route::get('/export/{babak}', 'export');
     });
 
 });

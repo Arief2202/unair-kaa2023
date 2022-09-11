@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simulasi Sesi 2</title>
+    <title>Kompetisi</title>
     <link href="/bootstrap-5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .soal {
@@ -17,7 +17,7 @@
     </style>
 </head>
 
-<body onmousedown='return false;' onselectstart='return false;' oncontextmenu="return false;">
+<body>
     @include('../../layouts/navbar')
     <div class="container" style="width: 50%">
         <div class="alert alert-warning mt-3" role="alert">
@@ -72,7 +72,7 @@
                 window.location.reload();
             }
         });
-        document.addEventListener('contextmenu', event => event.preventDefault());
+        // document.addEventListener('contextmenu', event => event.preventDefault());
         document.onkeydown = function(e) {
             if (event.keyCode == 123) {
                 return false;
