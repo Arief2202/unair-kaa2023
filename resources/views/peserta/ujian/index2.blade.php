@@ -21,14 +21,18 @@
             <div class="card-body">
                 TATA CARA PENGERJAAN KAA 2O22<br><br>
 
-                1. Peserta mengakses web perlombaan di https://kaasemnasunair.com/ <br>
+                1. Peserta mengakses web perlombaan di <a href = "https://kaasemnasunair2022.com/">https://kaasemnasunair2022.com/</a> <br>
                 2. Peserta melakukan login dengan username dan password yang sama saat mendaftar..<br>
                 3. Soal akan otomatis muncul ketika waktu pengerjaan telah dimulai.<br>
-                4. Pada akhir soal ujian klik "finish" dan tunggu hingga waktu pengerjaan habis.<br>
-                5. Jika waktu pengerjaan telah selesai jawaban akan otomatis tersimpan.<br>
+                4. Pilih Jawaban, Kemudian Tekan tombol Ragu-Ragu / Selanjutnya / Selesai (Soal Terakhir), jika menekan tombol kembali maka jawaban tidak akan tersimpan!.<br>
+                5. Apabila semua soal telah terjawab, peserta menunggu hingga waktu pengerjaan selesai.<br>
+                6. Jika waktu pengerjaan telah selesai, peserta akan diarahkan ke halaman Waiting Room dan jawaban akan otomatis tersimpan.<br>
+
+                <br><br><b>Penting!!!</b><br>
+                - Apabila terjadi error, tekan tombol back pada browser
 
                 <br><br>
-                <div style="display: inline;color:red;">* Dilarang Keras melakukan kecurangan!!!</div>
+                <div style="display: inline;color:red;">* Dilarang melakukan kecurangan dalam bentuk apapun !!!</div>
             </div>
         </div>
     </div>

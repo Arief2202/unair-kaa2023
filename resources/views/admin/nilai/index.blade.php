@@ -15,7 +15,14 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-body p-4">
-                <h4><b>Nilai Babak {{ $babak }}</b></h4>
+                <div class="row">
+                    <div class="col">
+                        <h4><b>Nilai Babak {{ $babak }}</b></h4>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <a class="btn btn-primary" href="/export/{{Request::segment(2)}}">Export Excel</a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="card-body p-4">
                         <table class="table" id="table" width="100%">
