@@ -210,7 +210,7 @@
                             @if($soalDetail->jenis_soal == 'text')
                                 {{$soalDetail->soal}}
                             @elseif($soalDetail->jenis_soal == 'gambar')
-                                <img class="p-1 mt-2" alt="Foto Soal" width="100%" src="/storage/{{$soalDetail->soal}}">
+                                <img class="p-1 mt-2" alt="Foto Soal" width="100%" src="/{{$soalDetail->soal}}">
                             @endif
                         </div>
 

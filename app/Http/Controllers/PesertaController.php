@@ -9,6 +9,9 @@ use App\Http\Requests\UpdatepesertaRequest;
 use Illuminate\Http\Request;
 use App\Models\peserta;
 use App\Models\User;
+use App\Models\Answer;
+use App\Models\AnswerFile;
+use Illuminate\Support\Facades\Hash;
 
 class PesertaController extends Controller
 {
@@ -29,6 +32,33 @@ class PesertaController extends Controller
             'peserta' => $peserta,
             'pesertaAll' => peserta::get(),
         ]);
+    }
+    
+    public function create(Request $request)
+    {
+        if($request->aksi == "new"){
+            if(User::where('email', $request->email)->count() == 0){
+                $newUser = new User();
+                $newUser->nama = $request->name;
+                $newUser->email = $request->email;
+                $newUser->password = Hash::make($request->password);
+                $newUser->status=5;
+                $newUser->save();
+            }
+        }
+        else if($request->aksi == "changepw"){
+            $newUser = User::where('id', $request->id)->first();
+            if($request->name)$newUser->nama = $request->name;
+            if($request->email)$newUser->email = $request->email;
+            if($request->password)$newUser->password = Hash::make($request->password);
+            $newUser->save();
+        }
+        else if($request->aksi == "delete"){
+            foreach(Answer::where('user_id', $request->id)->get() as $ans) $ans->delete();
+            foreach(AnswerFile::where('user_id', $request->id)->get() as $ans) $ans->delete();
+            User::where('id', $request->id)->first()->delete();
+        }
+        return redirect('/peserta');
     }
 
     public function donePayment(){

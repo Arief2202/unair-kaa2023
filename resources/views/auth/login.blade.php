@@ -4,7 +4,7 @@
 
         <x-slot name="logo">
             {{-- <a href="/"> --}}
-                <img src="http://{{$_SERVER['HTTP_HOST']}}/img/landingpage/hero-img.png" class="" width="250px">
+                {{-- <img src="http://{{$_SERVER['HTTP_HOST']}}/img/landingpage/hero-img.png" class="" width="250px"> --}}
                 {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
             {{-- </a> --}}
         </x-slot>

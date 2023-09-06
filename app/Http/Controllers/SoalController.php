@@ -36,30 +36,18 @@ class SoalController extends Controller
         if($request->soal_id){
             $soalDetail = Soal::where('id', $request->soal_id)->first();
         }
-        if($sublink == "preliminary"){
-            return view('admin.soal.index', [
-                'babak' => "Preliminary",
-                'soals' => Soal::where('babak', 'Preliminary')->get(),
-                'soalDetail' => $soalDetail
-            ]);
-        }
-        else if($sublink == "penyisihan1"){
-            return view('admin.soal.index', [
-                'babak' => "Penyisihan 1",
-                'soals' => Soal::where('babak', 'Penyisihan 1')->get(),
-                'soalDetail' => $soalDetail
-            ]);
-        }
-        else if($sublink == "simulasi"){
+        if($sublink == "simulasi"){
             return view('admin.soal.index', [
                 'babak' => "Simulasi",
                 'soals' => Soal::where('babak', 'Simulasi')->get(),
                 'soalDetail' => $soalDetail
             ]);
         }
-        else if($sublink == "penyisihan2"){
-            return view('admin.soal.penyisihan2', [
-                'babak' => "Penyisihan 2",
+        else if($sublink == "kompetisi"){
+            return view('admin.soal.index', [
+                'babak' => "Kompetisi",
+                'soals' => Soal::where('babak', 'Kompetisi')->get(),
+                'soalDetail' => $soalDetail
             ]);
         }
         else{
@@ -81,7 +69,17 @@ class SoalController extends Controller
             $validated = $request->validate([
                 'soalGambar' => 'image|file'
             ]);
-            $soal->soal = $request->file('soalGambar')->store('soal');
+            if($request->file('soalGambar')){
+                $file = $request->file('soalGambar');
+                
+                $name = 'Soal'.'_'.$request->babak.rand();
+                $extension = $file->getClientOriginalExtension();
+                $newName = $name.'.'.$extension;
+                $input = 'uploads/'.$newName;
+                $file->move(public_path('uploads'), $newName);
+    
+                $soal->soal = $input;
+            }
             $soal->save();
         }
         Jawaban::create([

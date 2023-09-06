@@ -47,17 +47,12 @@ class DashboardController extends Controller
             if(Auth::user()->role == 5){
                 return view('newPassword');
             }
-            $status = Auth::user()->status;
-            if($status == 0) return view('peserta.prosesDaftar.upload');
-            else if($status == 1) return view('peserta.prosesDaftar.waitAccPembayaran');
-            else if($status == 2) return view('peserta.prosesDaftar.datadiri');
-            else if($status == 3) return redirect('/biodata/1');
-            else if($status == 4) return view('peserta.prosesDaftar.waitAccBiodata');
-            // else if($status == 5) return view('peserta.ujian.index');
-            else if($status == 5){
-                $now = new DateTime();
-                $times = time::get();
-                $selectedTime = new time();
+
+            $now = new DateTime();
+            $times = time::get();
+            $selectedTime = new time();
+            if($times->count() > 0){
+
                 foreach($times as $time){
                     $checkTime = new DateTime($time->endTime);
                     if($now < $checkTime){
@@ -65,21 +60,21 @@ class DashboardController extends Controller
                         break;
                     }
                 }
+    
                 if($selectedTime->startTime){
-
                     $startSelectedTime = new DateTime($selectedTime->startTime);
-
+    
                     if($now > $startSelectedTime){ //ujian dimulai
                         $endSelectedTime = new DateTime($selectedTime->endTime);
                         if($selectedTime->babak != 'Simulasi 2' && $selectedTime->babak != 'Penyisihan 2'){
                             $soals = Soal::get();
-
+    
                             if($selectedTime->babak == 'Penyisihan1') $soals = Soal::where('babak', 'Penyisihan 1')->get();
                             else $soals = Soal::where('babak', $selectedTime->babak)->get();
                             if(!$request->soal) return redirect(strtok($_SERVER['REQUEST_URI'], '?').'?soal=1');
                             else if($request->soal < 1) return redirect(strtok($_SERVER['REQUEST_URI'], '?').'?soal=1');
                             else if($request->soal > $soals->count()) return redirect(strtok($_SERVER['REQUEST_URI'], '?').'?soal='.$soals->count());
-
+    
                             return view('ujian', [
                                 'soals' => $soals,
                                 'soal' => $soals->slice($request->soal-1, 1)->first(),
@@ -109,6 +104,9 @@ class DashboardController extends Controller
                 else{
                     return view('peserta.ujian.done');
                 }
+            }
+            else{                
+                return view('peserta.ujian.index');
             }
         }
     }

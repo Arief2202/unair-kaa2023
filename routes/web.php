@@ -17,6 +17,16 @@ Route::get('/phpinfo', function() {
     return phpinfo();
 });
 Route::get('/', function () {
+    return redirect('/login');
+    if(isset(Auth::user()->email)){
+        return redirect('/dashboard');
+    }
+    else{
+        return view('landing');
+    }
+});
+Route::get('/register', function () {
+    return redirect('/login');
     if(isset(Auth::user()->email)){
         return redirect('/dashboard');
     }
@@ -40,6 +50,7 @@ Route::middleware('auth')->group(function () {
     });
     Route::controller(PesertaController::class)->group(function() {
         Route::get('/peserta', 'index');
+        Route::post('/peserta', 'create');
         Route::post('/donePayment', 'donePayment');
         Route::post('/updatePeserta/{biodata}', 'updatePeserta');
         Route::post('/createPeserta/{biodata}', 'createPeserta');

@@ -68,7 +68,7 @@
                                     <div class="soal">{{ $soal->soal }}</div>
                                 @elseif($soal->jenis_soal == 'gambar')
                                     <img class="p-1 mt-2" alt="Foto Soal" width="100%"
-                                        src="/storage/{{ $soal->soal }}">
+                                        src="/{{ $soal->soal }}">
                                 @endif
                             </div>
 

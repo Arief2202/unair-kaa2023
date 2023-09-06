@@ -14,15 +14,15 @@
         <div class="alert alert-primary mt-3" role="alert">
             <p id="babak" style="display:inline;">{{ $time->babak }}</p> akan dimulai pada :
             <p id="time" style="display:inline;">
-                {{ $interval->d }} Hari {{ $interval->h }} Jam {{ $interval->i }} Menit {{ $interval->s }} Detik
+                0 Hari 0 Jam 0 Menit 0 Detik
             </p>
         </div>
         <div class="card mt-2">
             <div class="card-body">
-                TATA CARA PENGERJAAN KAA 2O22<br><br>
+                TATA CARA PENGERJAAN KAA 2O23<br><br>
 
-                1. Peserta mengakses web perlombaan di <a href = "https://kaasemnasunair2022.com/">https://kaasemnasunair2022.com/</a> <br>
-                2. Peserta melakukan login dengan username dan password yang sama saat mendaftar..<br>
+                1. Peserta mengakses web perlombaan di <a href = "/">https://contoh.com/</a> <br>
+                2. Peserta melakukan login dengan username dan password yang diberi oleh panitia.<br>
                 3. Soal akan otomatis muncul ketika waktu pengerjaan telah dimulai.<br>
                 4. Pilih Jawaban, Kemudian Tekan tombol Ragu-Ragu / Selanjutnya / Selesai (Soal Terakhir), jika menekan tombol kembali maka jawaban tidak akan tersimpan!.<br>
                 5. Apabila semua soal telah terjawab, peserta menunggu hingga waktu pengerjaan selesai.<br>
@@ -48,7 +48,7 @@
                 window.location.reload();
             }
         });
-        var sesi = ["Simulasi", "Preliminary", "Penyisihan Babak 1", "Penyisihan Babak 2"];
+        var sesi = ["Simulasi", "Kompetisi"];
 
         function printTime(time) {
             var days = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -57,7 +57,7 @@
             var seconds = Math.floor((time % (1000 * 60)) / 1000);
             return days + " Hari " + hours + " Jam " + minutes + " Menit " + seconds + " Detik ";
         }
-
+        var lastState = true;
         var x = setInterval(function() {
             var httpxml = new XMLHttpRequest();
 
@@ -70,8 +70,8 @@
 
                     distanceEnd = new Date(obj.time.endTime).getTime();
                     distanceEnd -= now;
-
-                    if (time < 0 && distanceEnd > 0) {
+                    var state = obj.time.startTime ? true : false;
+                    if ((time < 0 && distanceEnd > 0) || state != lastState) {
                         window.location.reload();
                     } else {
                         document.getElementById("babak").innerHTML = obj.time.babak;

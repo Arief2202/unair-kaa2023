@@ -48,51 +48,40 @@ class AnswerController extends Controller
     public function nilai($sublink, Request $request){
         if(Auth::user()->role != 1) return redirect('/dashboard');
         $babak = "";
-        if($sublink != "penyisihan2" && $sublink != "simulasi2"){
-            if($sublink == "simulasi") $babak = "Simulasi";
-            else if($sublink == "preliminary") $babak = "Preliminary";
-            else if($sublink == "penyisihan1") $babak = "Penyisihan 1";
-            else return redirect('/nilai/preliminary');
-            $scores = null;
-            foreach(User::where('role', '!=', 1)->get() as $index=>$user){
-                $answerUsers = Answer::where('babak', $babak)->where('user_id', $user->id)->get();
-                $true = 0;
-                $false = 0;
-                $empty = Soal::where('babak', $babak)->get()->count() - ($answerUsers->count());
-                $score = 0;
-                foreach($answerUsers as $answer){
-                    if($answer->check()){
-                        $true++;
-                        $score+=4;
-                    }
-                    else{
-                        $false++;
-                        $score-=1;
-                    }
+        if($sublink == "simulasi") $babak = "Simulasi";
+        else if($sublink == "kompetisi") $babak = "Kompetisi";
+        else return redirect('/nilai/kompetisi');
+
+        $scores = null;
+        foreach(User::where('role', '!=', 1)->get() as $index=>$user){
+            $answerUsers = Answer::where('babak', $babak)->where('user_id', $user->id)->get();
+            $true = 0;
+            $false = 0;
+            $empty = Soal::where('babak', $babak)->get()->count() - ($answerUsers->count());
+            $score = 0;
+            foreach($answerUsers as $answer){
+                if($answer->check()){
+                    $true++;
+                    $score+=4;
                 }
-                $scores[$index] = (object) [
-                        "user" => (object)$user->toArray(),
-                        "true" => $true,
-                        "false" => $false,
-                        "empty" => $empty,
-                        "score" => $score,
-                ];
+                else{
+                    $false++;
+                    $score-=1;
+                }
             }
-            $scores = collect($scores)->sortByDesc('score');
-            return view('admin.nilai.index', [
-                'babak' => $babak,
-                'scores' => $scores,
-            ]);
+            $scores[$index] = (object) [
+                    "user" => (object)$user->toArray(),
+                    "true" => $true,
+                    "false" => $false,
+                    "empty" => $empty,
+                    "score" => $score,
+            ];
         }
-        else{
-            if($sublink == "simulasi2") $babak = "Simulasi 2";
-            else if($sublink == "penyisihan2") $babak = "Penyisihan 2";
-            return view('admin.nilai.penyisihan2', [
-                'babak' => $babak,
-                'users' => User::where('role', '!=', 1)->get(),
-                'answers' => AnswerFile::where('babak', $babak)->get(),
-            ]);
-        }
+        $scores = collect($scores)->sortByDesc('score');
+        return view('admin.nilai.index', [
+            'babak' => $babak,
+            'scores' => $scores,
+        ]);
     }
     public function updateNilai(Request $request){
         if(Auth::user()->role != 1) return redirect('/dashboard');

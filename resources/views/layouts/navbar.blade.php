@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="/">KAA SemNas 2022</a>
+    <a class="navbar-brand" href="/">KAA 2023</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,10 +18,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item {{Request::segment(2) == 'simulasi'? 'active' : ''}}" href="/nilai/simulasi">Simulasi</a></li>
-              <li><a class="dropdown-item {{Request::segment(2) == 'simulasi2'? 'active' : ''}}" href="/nilai/simulasi2">Simulasi 2</a></li>
-              <li><a class="dropdown-item {{Request::segment(2) == 'preliminary'? 'active' : ''}}" href="/nilai/preliminary">Preliminary</a></li>
-              <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan1'? 'active' : ''}}" href="/nilai/penyisihan1">Penyisihan 1</a></li>
-              <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan2'? 'active' : ''}}" href="/nilai/penyisihan2">Penyisihan 2</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'kompetisi'? 'active' : ''}}" href="/nilai/kompetisi">Kompetisi</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown">
@@ -30,16 +27,15 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item {{Request::segment(2) == 'simulasi'? 'active' : ''}}" href="/banksoal/simulasi">Simulasi</a></li>
-              <li><a class="dropdown-item {{Request::segment(2) == 'preliminary'? 'active' : ''}}" href="/banksoal/preliminary">Preliminary</a></li>
-              <li><a class="dropdown-item {{Request::segment(2) == 'penyisihan1'? 'active' : ''}}" href="/banksoal/penyisihan1">Penyisihan 1</a></li>
+              <li><a class="dropdown-item {{Request::segment(2) == 'kompetisi'? 'active' : ''}}" href="/banksoal/kompetisi">Kompetisi</a></li>
             </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link {{Request::segment(1) == 'peserta'? 'active' : ''}}" aria-current="page" href="/peserta">Peserta</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link {{Request::segment(1) == 'pembayaran'? 'active' : ''}}" aria-current="page" href="/pembayaran">Pembayaran</a>
-        </li>
+        </li> --}}
         @endif
         <li class="nav-item">
             <form method="POST" action="{{ route('logout') }}">@csrf
