@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>KAA2023 Selesai</title>
     <link href="/bootstrap-5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
@@ -12,7 +12,7 @@
         <div class="card mt-5">
             <div class="card-body">
                 <div class="alert alert-success" role="alert">
-                    Terimakasih telah mengikuti kompetisi KAA 2022
+                    Terimakasih telah mengikuti kompetisi KAA 2023
                 </div>
             </div>
         </div>

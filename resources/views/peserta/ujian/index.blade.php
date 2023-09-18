@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Waiting Room</title>
+    <title>KAA2023 | Waiting Room</title>
     <link href="/bootstrap-5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>

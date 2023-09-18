@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Waiting Room</title>
+    <title>KAA2023 | Waiting Room</title>
     <link href="/bootstrap-5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -21,10 +21,10 @@
             <div class="card-body">
                 TATA CARA PENGERJAAN KAA 2O23<br><br>
 
-                1. Peserta mengakses web perlombaan di <a href = "/">https://contoh.com/</a> <br>
+                1. Peserta mengakses web perlombaan di <a href = "https://kaa.unair.tech/">https://kaa.unair.tech/</a> <br>
                 2. Peserta melakukan login dengan username dan password yang diberi oleh panitia.<br>
                 3. Soal akan otomatis muncul ketika waktu pengerjaan telah dimulai.<br>
-                4. Pilih Jawaban, Kemudian Tekan tombol Ragu-Ragu / Selanjutnya / Selesai (Soal Terakhir), jika menekan tombol kembali maka jawaban tidak akan tersimpan!.<br>
+                4. Pilih Jawaban, Kemudian Tekan tombol Ragu-Ragu / Selanjutnya / Selesai (Soal Terakhir), jika menekan tombol back pada browser maka jawaban tidak akan tersimpan!.<br>
                 5. Apabila semua soal telah terjawab, peserta menunggu hingga waktu pengerjaan selesai.<br>
                 6. Jika waktu pengerjaan telah selesai, peserta akan diarahkan ke halaman Waiting Room dan jawaban akan otomatis tersimpan.<br>
 
